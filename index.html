@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 天外天
-tagline: 天外有天，山外有山
+title: 个人博客
+tagline: 广积水，深挖洞
 role: index
 ---
 
@@ -72,7 +72,7 @@ role: index
             (function() {
                 var m = document.createElement('script');
                 m.src = '//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-                var s = document.getElementsByTagName("script")[0]; 
+                var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(m, s);
             })();
         }
@@ -80,7 +80,7 @@ role: index
         var tags = post.meta.tags.reduce(function(p, c) {
             return p + '<a class="tag" href="' + c.url + '">' + c.tag + '</a> ';
         }, '');
-        
+
         var spand = $('<span></span>').html('<i class="fa fa-calendar"></i> ' + post.meta.date);
         var spant = $('<span></span>').html('<i class="fa fa-tags"></i> ' + tags);
         var $meta = $('<div class="post-meta"></div>').append(spand).append(spant);
@@ -103,11 +103,11 @@ role: index
                 putPost(post);
             }
         }
-        
+
         function throttle(func, wait) {
             var timeout = null;
             var previous = 0;
-            
+
             return function() {
                 var now = +new Date();
                 var remaining = wait - (now - previous);
@@ -125,7 +125,7 @@ role: index
                 }
             }
         }
-        
+
         checkAndAdd();
         $(window).scroll(throttle(checkAndAdd, 100));
         $(window).resize(throttle(checkAndAdd, 100));
