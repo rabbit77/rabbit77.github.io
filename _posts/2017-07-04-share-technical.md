@@ -27,6 +27,7 @@ tags: [总结]
 <img src="<?= lists.header_pic?>" onerror="this.onerror=null; this.src='//c4.xinstatic.com/f1/20170322/1037/58d1e36350971261856.jpg';" alt="车型图">
 ```
 > 报错信息会提示语法错误，missing ) ，这个提示在很大程度上给排除bug造成了误解。
+
 <br/>
 ###   二、点击鼠标提交form表单的数据
 <br/>
@@ -44,3 +45,28 @@ tags: [总结]
 ###   六、元素设置width:100%; padding: 0 .35rem; 想实现左右两边空出来一定距离。但是这样的话，右边就出去了。这时候只要把width:100%去掉就好了。
     单纯设置overflow是不管用的。
 <br/>
+###   七、手机端边框1像素样式
+<br/>
+```css
+.advisory {
+    width: 1.5rem;
+    height: .5rem;
+    color: @blue;
+    text-align: center;
+    font-weight: 200;
+    line-height: .54rem;
+    position: relative;
+    &::before{
+        border: 1px solid @blue;
+        border-radius: .1rem;
+        -webkit-transform:scale(0.5);
+        transform: scale(0.5);
+        position: absolute;
+        top: -52%;
+        left: -52%;
+        content: '';
+        width: 200%;
+        height: 200%;
+    }
+}
+```
