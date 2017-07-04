@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: default
 title: 个人总结
 tags: [总结]
 ---
 
 #   以下为之前遇到的bug
 
-###  img标签src为空引发两次请求页面的问题
+##   img标签src为空引发两次请求页面的问题
 ```html
 <img src="">
 ```
@@ -20,4 +20,4 @@ tags: [总结]
 <img src="<%= v.pic.pic_url %>" onerror="this.onerror=null;this.src='//c4.xinstatic.com/che/20161109/1820/5822f87620d71845964.jpg';">
 ```
 
-###  点击鼠标提交form表单的数据
+##   点击鼠标提交form表单的数据
