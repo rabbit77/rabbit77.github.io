@@ -28,12 +28,8 @@ service:
   comment: disqus
   disqus:
     short_name: rabbit77coding
-  duoshuo: 
+  duoshuo:
     short_name: rabbit77coding
-  google:
-    tracking_id : 
-  baidu:
-    num: 
+
 
 exclude: [README.md, CNAME]
-  
