@@ -13,10 +13,10 @@ dl, dd, ol, ul, figure {
 /**
  * Basic styling
  */
- 
+
 html {
     overflow-x: hidden;
-} 
+}
 body {
     font-family: $base-font-family;
     font-size: $base-font-size;
@@ -46,7 +46,7 @@ ul, ol, dl, figure,
  * Images
  */
 img {
-    max-width: 100%;
+    max-width: 60%;
     vertical-align: middle;
 }
 
