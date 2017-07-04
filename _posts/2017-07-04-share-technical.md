@@ -47,7 +47,7 @@ tags: [总结]
 <br/>
 ###   七、手机端边框1像素样式
 <br/>
-```css
+```sass
 .advisory {
     width: 1.5rem;
     height: .5rem;
