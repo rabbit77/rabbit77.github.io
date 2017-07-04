@@ -559,9 +559,9 @@ table {
  * aspect ratio.
  */
 .pure-img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
-    display: block;
+    /*display: block;*/
 }
 
 /*csslint regex-selectors:false, known-properties:false, duplicate-properties:false*/
