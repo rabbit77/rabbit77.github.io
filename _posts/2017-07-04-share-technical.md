@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 技术分享
+title: 个人总结
 tags: [总结]
 ---
 

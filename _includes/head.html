@@ -5,9 +5,9 @@
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
-   
+
     <link rel="stylesheet" href="{{ '/static/css/code/github.css' | prepend: site.baseurl }}">
-   
+
     {% if jekyll.environment == 'production' %}
         <link href="//cdn.bootcss.com/pure/0.5.0/pure-min.css" rel="stylesheet">
         <link href="//cdn.bootcss.com/pure/0.5.0/grids-responsive-min.css" rel="stylesheet">
@@ -21,11 +21,10 @@
         <link rel="stylesheet" href="{{ '/static/lib/font-awesome/css/font-awesome.min.css' | prepend: site.baseurl }}">
         <script src="{{ '/static/lib/jquery/jquery-2.2.1.min.js' | prepend: site.baseurl }}"></script>
     {% endif %}
-    
+
     {% if page.math %}
         <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {% endif %}
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    {% include component/baidu_tongji %}
 </head>
