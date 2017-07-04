@@ -9,7 +9,7 @@ tags: [总结]
 
 ###  img标签src为空引发两次请求页面的问题
 
-```
+```html
 <img src="">
 ```
 
@@ -18,7 +18,7 @@ tags: [总结]
 
 解决办法：
 * 设置缺省图
-```
+```html
 <img src="<%= v.pic.pic_url %>" onerror="this.onerror=null;this.src='//c4.xinstatic.com/che/20161109/1820/5822f87620d71845964.jpg';">
 ```
 
