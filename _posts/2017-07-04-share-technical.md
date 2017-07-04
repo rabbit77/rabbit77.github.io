@@ -77,5 +77,4 @@ tags: [总结]
     }
 }
 ```
-![1像素边框示意图](/static/image/left1px.jpeg)
-![2像素边框示意图](/static/image/right2px.jpeg)
+![1像素边框示意图](/static/image/border.png)
