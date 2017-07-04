@@ -1,19 +1,19 @@
-title: 天外天
-tagline: 天外有天，山外有山
-description: 一个程序员的技术和生活
+title: 技术分享
+tagline: 技术分享
+description: 最近碰到的问题
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: http://blog.evercoding.net # the base hostname & protocol for your site
+url: http://rabbit77.github.io # the base hostname & protocol for your site
 
 author:
-  name: Ever
-  email: g.everax@gmail.com
-  github: iEverX
-  twitter: ieverx
-  weibo: ieverx
-start_year: 2012
+  name: gongjianmei
+  email: rabbit7_77@163.com
+  github: rabbit77
+  twitter: rabbit77
+  weibo: feiniaohuaxi
+start_year: 2017
 
 permalink: /:year/:month/:day/:title
-timezone: Asia/Shanghai
+timezone: Asia/BeiJing
 
 tags_path: /tags.html
 feed_path: /feed.xml
@@ -27,13 +27,13 @@ kramdown:
 service:
   comment: disqus
   disqus:
-    short_name: evercoding
+    short_name: rabbit77coding
   duoshuo: 
-    short_name: evercoding
+    short_name: rabbit77coding
   google:
-    tracking_id : UA-54098391-1
+    tracking_id : 
   baidu:
-    num: 286a0fd3582530031faa80f383f53a77
+    num: 
 
 exclude: [README.md, CNAME]
   
