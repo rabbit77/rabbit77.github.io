@@ -34,12 +34,7 @@ tags: [总结]
 ##   二、点击鼠标提交form表单的数据
 <br/>
 按钮放在form表单里点击会引起当前页面刷新
-<form>
-<button>button1<button>
-<button>button2<button>
-<button>button3<button>
-<form>
-
+[demo](/includes/demo.html)
 <br/>
 ##   三、<img> 标签没有before跟after伪元素吗？
     *  写一个样式，img标签的伪元素死活出不来。已经排除是不是块级元素影响，因为mdn上给出的例子，span可以有伪元素
