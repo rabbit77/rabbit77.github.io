@@ -34,6 +34,11 @@ tags: [总结]
 ##   二、点击鼠标提交form表单的数据
 <br/>
 按钮放在form表单里点击会引起当前页面刷新
+<form>
+<button>button1<button>
+<button>button2<button>
+<button>button3<button>
+<form>
 
 <br/>
 ##   三、<img> 标签没有before跟after伪元素吗？
