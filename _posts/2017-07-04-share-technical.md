@@ -38,7 +38,7 @@ demo<br/>
 <form>
 <button>button1</button>
 <button>button2</button>
-<button onClick="function(e){e.preventDefault();}">button3</button>
+<button>button3</button>
 </form>
 <br/>
 ##   三、<img> 标签没有before跟after伪元素吗？
