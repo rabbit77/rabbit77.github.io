@@ -13,8 +13,8 @@ tags: [总结]
 ```
 <br/>
 在金融项目里，有个页面因为后台返回的图片数据为空，导致页面向后台请求两次接口。<br/>
-在这里问题比较严重，每向后台请求一次接口，就会生成一个订单。
-
+在这里问题比较严重，每向后台请求一次接口，就会生成一个订单。<br/>
+[原理](http://blog.csdn.net/chengmodelong/article/details/44618435)    <br/>
 解决办法：
  * 设置缺省图
 
@@ -58,12 +58,12 @@ tags: [总结]
 ##   五、location.replace()
 调用location.replace()方法后，用户就不能回到前一个页面。<br/>
 这个方法可以很好的解决在APP里，打开按钮跳到前一个页面，这种在APP里按回退按钮无限循环的问题。<br/>
-```JavaScript
+```javascript
 location.replace('/activity/logo-answer?question_id=' + self.state.question_id + '&token=' + self.state.token);
 ```
 <br/>
 ##   六、md5
-```JavaScript
+```javascript
 import Crypto from 'crypto'
 
 Crypto.createHash('md5').update(string).digest('hex')
@@ -119,12 +119,13 @@ Crypto.createHash('md5').update(string).digest('hex')
 ```
 
 2. 向后台发送数据的时候
-![发送数据截图](/static/image/print.png)
+<br/>
+![发送数据截图](/static/image/net.png)
 
 <br/>
 ##  九、微信二次分享测试  
 <br/>
-```JavaScript
+```javascript
 wxShare: function() {
             // 微信分享
             if (XIN.platform.wx) {
@@ -144,7 +145,7 @@ wxShare: function() {
 
 需配置本机域名及端口 80
 端口配置方法
-```JavaScript
+```javascript
 sudo PORT=80 npm start
 ```
 <br/>
@@ -154,3 +155,8 @@ sudo PORT=80 npm start
 * [jekyll官网](http://jekyll.com.cn/)
 * [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门--阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 * 模板 😳😳😳
+
+
+<br/>
+<br/>
+<br/>
