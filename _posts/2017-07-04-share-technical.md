@@ -6,7 +6,7 @@ tags: [总结]
 <br/>
 #   以下为之前遇到的bug
 <br/>
-**   一、img标签src为空引发两次请求页面的问题 **
+##   一、img标签src为空引发两次请求页面的问题
 <br/>
 ```html
 <img src="">
@@ -31,28 +31,46 @@ tags: [总结]
 > 报错信息会提示语法错误，missing ) ，这个提示在很大程度上给排除bug造成了误解。
 
 <br/>
-**   二、点击鼠标提交form表单的数据 **
+##   二、点击鼠标提交form表单的数据
 <br/>
-**   三、<img> 标签没有before跟after伪元素吗？**
-    * 写一个样式，img标签的伪元素死活出不来，而加在section标签上立马就出来了。已经排除是不是块级元素影响，因为mdn上给出的例子，span可以有伪元素
-    * 也有一些人认为before跟after作为dom元素，是在容器内渲染的，首先这个容器得可以包含其他元素，input标签及img标签本身都不能包含其他元素，因此不能加before跟after标签
+按钮放在form表单里点击会引起当前页面刷新
 
 <br/>
-**   四、设置before跟after的content **
+##   三、<img> 标签没有before跟after伪元素吗？
+    *  写一个样式，img标签的伪元素死活出不来。已经排除是不是块级元素影响，因为mdn上给出的例子，span可以有伪元素
+    *  也有一些人认为before跟after作为dom元素，是在容器内渲染的，首先这个容器得可以包含其他元素，input标签及img标签本身都不能包含其他元素，因此不能加before跟after标签
+
+<br/>
+##   四、设置before跟after的content
+```html
+   <div class="pic-content third-pic" data-count="<?= num?>">
+```
+<br/>
+
 ```sass
 .third-pic::before {
     content: attr(data-count);
 }
 ```
+<br/>
+![example](/static/image/tell.png)
+<br/>
+##   五、location.replace()
+调用location.replace()方法后，用户就不能回到前一个页面。<br/>
+这个方法可以很好的解决在APP里，打开按钮跳到前一个页面，这种在APP里按回退按钮无限循环的问题。<br/>
+```JavaScript
+location.replace('/activity/logo-answer?question_id=' + self.state.question_id + '&token=' + self.state.token);
+```
+<br/>
+##   六、md5
+```JavaScript
+import Crypto from 'crypto'
+
+Crypto.createHash('md5').update(string).digest('hex')
+```
 
 <br/>
-**   五、其实重点想说的是location.replace()方法，调用replace()方法后，用户就不能回到前一个页面。这个方法可以很好的解决在APP里，打开按钮跳到前一个页面，这种在APP里按回退按钮无限循环的问题 **
-<br/>
-**   六、元素设置width:100%; padding: 0 .35rem; 想实现左右两边空出来一定距离。但是这样的话，右边就出去了。这时候只要把width:100%去掉就好了。 **
->    单纯设置overflow是不管用的。
-
-<br/>
-**   七、手机端边框1像素样式 **
+##   七、手机端边框1像素样式
 <br/>
 ```sass
 .advisory {
@@ -84,16 +102,55 @@ tags: [总结]
 
 <br/>
 
-**  八、JSON.stringify() **
+##  八、JSON.stringify()
+<br/>
 1. 后台没办法返数据，也不能从localStorage里取，只能自己拼接到链接上。
+```html
+<%
+    var params = {
+        type: 'history',
+        name: name,
+        tel: tel,
+        id: identity,
+        cid: ele.card_no
+    };
+%>
+<a href="<%=url%>?status=<%=status%>&params=<%= JSON.stringify(params) %>&invalidate_reason=<%= ele.invalidate_reason%>" class="result"></a>
+```
 
 2. 向后台发送数据的时候
+![发送数据截图](/static/image/print.png)
 
 <br/>
-**  九、微信二次分享测试  **
+##  九、微信二次分享测试  
+<br/>
+```JavaScript
+wxShare: function() {
+            // 微信分享
+            if (XIN.platform.wx) {
+                var data = {
+                    title: shareData.title + ' - 优信新车',
+                    desc: shareData.content,
+                    link: shareData.url,
+                    imgUrl: shareData.icon,
+                    success: function() {
+                        statistic.pv('statistic/activity_logo_share1_success');
+                    }
+                }
+                share2wx(data)
+            }
+        }
+```
 
+需配置本机域名及端口 80
+端口配置方法
+```JavaScript
+sudo PORT=80 npm start
+```
 <br/>
-**  十、jekyll **
+##  十、jekyll
 <br/>
-[jekyll中文官网](http://jekyll.com.cn/)
-[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门--阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
+* [jekyll中文官网](http://jekyll.com.cn/)
+* [jekyll官网](http://jekyll.com.cn/)
+* [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门--阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
+* 模板 😳😳😳
