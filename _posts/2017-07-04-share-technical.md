@@ -31,22 +31,16 @@ tags: [总结]
 > 报错信息会提示语法错误，missing ) ，这个提示在很大程度上给排除bug造成了误解。
 
 <br/>
-##   二、点击鼠标提交form表单的数据
-<br/>
-按钮放在form表单里点击会引起当前页面刷新<br/>
-demo<br/>
-<form>
-<button>button1</button>
-<button>button2</button>
-<button>button3</button>
-</form>
-<br/>
-##   三、<img> 标签没有before跟after伪元素吗？
-    *  写一个样式，img标签的伪元素死活出不来。已经排除是不是块级元素影响，因为mdn上给出的例子，span可以有伪元素
-    *  也有一些人认为before跟after作为dom元素，是在容器内渲染的，首先这个容器得可以包含其他元素，input标签及img标签本身都不能包含其他元素，因此不能加before跟after标签
+
+##   二、<img> 标签没有before跟after伪元素吗？
+
+*  写一个样式，img标签的伪元素死活出不来。
+*  也有一些人认为before跟after作为dom元素，是在容器内渲染的，首先这个容器得可以包含其他元素，input标签及img标签本身都不能包含其他元素，因此不能加before跟after标签
+
+[伪元素伪类--掘金](https://mp.weixin.qq.com/s?__biz=MzI0MDYzOTEyOA==&mid=2247483704&idx=1&sn=ebba5365768889245ca4185b0f011ddc&chksm=e9168ccfde6105d92f9fce14ae201263758e5be70d9500fb89e9dd6c8c71b2c57cf7ae62923f&scene=38#wechat_redirect)
 
 <br/>
-##   四、设置before跟after的content
+##   三、设置before跟after的content
 ```html
    <div class="pic-content third-pic" data-count="<?= num?>">
 ```
@@ -60,14 +54,16 @@ demo<br/>
 <br/>
 ![example](/static/image/tell.png)
 <br/>
-##   五、location.replace()
-调用location.replace()方法后，用户就不能回到前一个页面。<br/>
-这个方法可以很好的解决在APP里，打开按钮跳到前一个页面，这种在APP里按回退按钮无限循环的问题。<br/>
+##   四、location.replace()
+调用location.replace()方法后，当前页面不会保存到会话历史中（session History），这样用户点击回退按钮将不会再跳转到该页面。<br/>
+这个方法可以解决在APP里，打开按钮跳到前一个页面，这种在APP里按回退按钮无限循环的问题。<br/>
 ```javascript
 location.replace('/activity/logo-answer?question_id=' + self.state.question_id + '&token=' + self.state.token);
 ```
 <br/>
-##   六、md5
+举个简单的栗子
+<br/>
+##   五、md5
 ```javascript
 import Crypto from 'crypto'
 
@@ -75,7 +71,7 @@ Crypto.createHash('md5').update(string).digest('hex')
 ```
 
 <br/>
-##   七、手机端边框1像素样式
+##   六、手机端边框1像素样式
 <br/>
 ```sass
 .advisory {
@@ -107,7 +103,7 @@ Crypto.createHash('md5').update(string).digest('hex')
 
 <br/>
 
-##  八、JSON.stringify()
+##  七、JSON.stringify()
 <br/>
 1. 后台没办法返数据，也不能从localStorage里取，只能自己拼接到链接上。
 ```html
@@ -128,7 +124,7 @@ Crypto.createHash('md5').update(string).digest('hex')
 ![发送数据截图](/static/image/net.png)
 
 <br/>
-##  九、微信二次分享测试  
+##  八、微信二次分享测试  
 <br/>
 ```javascript
 wxShare: function() {
@@ -152,16 +148,45 @@ wxShare: function() {
 端口配置方法
 ```javascript
 sudo PORT=80 npm start
+
+PORT=80 npm start
 ```
 <br/>
-##  十、jekyll
+##  九、jekyll
 <br/>
 * [jekyll中文官网](http://jekyll.com.cn/)
 * [jekyll官网](http://jekyll.com.cn/)
+* [利用github和jekyll搭建免费的个人blog](http://damoqiongqiu.github.io/jekyll/2017/07/02/%E5%88%A9%E7%94%A8github%E5%92%8Cjekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BABlog-1.html)
 * [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门--阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 * 模板 😳😳😳
-
-
 <br/>
+##  十、setTimeout除了做定时器还能做什么？
+setTimeout(fn,0);
+<br/>
+非常多，比如说：在处理DOM点击事件的时候通常会产生冒泡，<br/>
+正常情况下首先触发的是子元素的handler，再触发父元素的handler，<br/>
+如果我想让父元素的handler先于子元素的handler执行应该怎么办？<br/>
+那就用setTimeout延迟子元素handler若干个毫秒执行吧。问题是这个“若干个”毫秒应该是多少？可以是0<br/>
+<br/>
+比如下面这个栗子
+<br/>
+```javascript
+(function () {
+    setTimeout(function () {
+        alert(2);
+    }, 0);
+
+    alert(1);
+})()
+```
+<br/>
+就会先弹出1
+<br/>
+原因：setTimeout，setInterval都存在一个最小延迟的问题，虽然你给的delay值为0，但是浏览器执行的是自己的最小值。HTML5标准是4ms，但并不意味着所有浏览器都会遵循这个标准，包括手机浏览器在内，这个最小值既有可能小于4ms也有可能大于4ms。在标准中，如果在setTimeout中嵌套一个setTimeout, 那么嵌套的setTimeout的最小延迟为10ms。
+<br/>
+参考文章：[你真的了解setTimeout和setInterval吗？](http://qingbob.com/difference-between-settimeout-setinterval/)
+<br/>
+##  十一、分享几道有意思的js面试题
+[几道有意思的js面试题--from eplover's blog](https://eplover.github.io/pages/2017/03/17/interest-questions.html)
 <br/>
 <br/>
