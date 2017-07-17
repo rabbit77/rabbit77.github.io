@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 个人总结
+title: 个人总结-技术分享
 tags: [总结]
 ---
 <br/>
@@ -152,14 +152,7 @@ sudo PORT=80 npm start
 PORT=80 npm start
 ```
 <br/>
-##  九、jekyll
-<br/>
-* [jekyll中文官网](http://jekyll.com.cn/)
-* [jekyll官网](http://jekyll.com.cn/)
-* [利用github和jekyll搭建免费的个人blog](http://damoqiongqiu.github.io/jekyll/2017/07/02/%E5%88%A9%E7%94%A8github%E5%92%8Cjekyll%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BABlog-1.html)
-* [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门--阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
-* 模板 😳😳😳
-<br/>
+
 ##  十、setTimeout除了做定时器还能做什么？
 setTimeout(fn,0);
 <br/>
